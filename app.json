@@ -1,0 +1,6 @@
+{
+  "name": "SeedStack simple WS sample",
+  "description": "A simple Web-Service exposing product information, based on the e-commerce domain model.",
+  "repository": "https://github.com/seedstack/simple-ws-sample",
+  "keywords": ["seedstack", "web-service", "java", "sample"]
+}
