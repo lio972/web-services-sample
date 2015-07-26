@@ -1,0 +1,26 @@
+# General configuration
+[org.seedstack.seed]
+core.application-id = web-services-sample
+persistence.jdbc.datasources = main-ds
+persistence.jpa.units = ecommerce-domain
+ws.endpoints = ProductInfoWS
+
+# Datasource
+[org.seedstack.seed.persistence.jdbc.datasource.main-ds]
+driver = org.hsqldb.jdbcDriver
+url = jdbc:hsqldb:mem:test
+user = sa
+password =
+property.sql.enforce_strict_size = true
+
+# JPA unit
+[org.seedstack.seed.persistence.jpa.unit.ecommerce-domain]
+datasource = main-ds
+property.hibernate.dialect = org.hibernate.dialect.HSQLDialect
+property.hibernate.hbm2ddl.auto = update
+
+# ProductInfo WS
+[org.seedstack.seed.ws]
+endpoint.ProductInfoWS.implementation = org.seedstack.samples.ws.product.ProductInfoServiceWebImpl
+endpoint.ProductInfoWS.wsdl = ProductInfoWS.wsdl
+endpoint.ProductInfoWS.url = /product-info
