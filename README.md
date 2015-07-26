@@ -1,4 +1,5 @@
 # Simple Web-Service sample
+[![Build status](https://travis-ci.org/seedstack/simple-ws-sample.svg?branch=master)](https://travis-ci.org/seedstack/simple-ws-sample)
 
 A simple Web-Service exposing product information, based on the e-commerce domain model.
 
