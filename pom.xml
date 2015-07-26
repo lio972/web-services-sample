@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.seedstack.samples</groupId>
-    <artifactId>simple-ws</artifactId>
+    <artifactId>simple-ws-sample</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <packaging>war</packaging>
 
@@ -91,7 +91,7 @@
     <dependencies>
         <dependency>
             <groupId>org.seedstack.samples</groupId>
-            <artifactId>ecommerce-domain</artifactId>
+            <artifactId>ecommerce-domain-sample</artifactId>
             <version>${ecommerce-domain.version}</version>
         </dependency>
         <dependency>
