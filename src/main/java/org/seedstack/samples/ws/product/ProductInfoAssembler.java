@@ -12,7 +12,7 @@ package org.seedstack.samples.ws.product;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.PropertyMap;
 import org.seedstack.business.api.interfaces.assembler.ModelMapperAssembler;
-import org.seedstack.samples.ecommerce.domain.product.Product;
+import org.seedstack.samples.domain.product.Product;
 
 public class ProductInfoAssembler extends ModelMapperAssembler<Product, ProductInfo> {
 

@@ -12,11 +12,9 @@
  */
 package org.seedstack.samples.ws.product;
 
+import org.seedstack.business.api.domain.Factory;
 import org.seedstack.business.api.interfaces.assembler.FluentAssembler;
-import org.seedstack.samples.ecommerce.domain.product.Product;
-import org.seedstack.samples.ecommerce.domain.product.ProductRepository;
-import org.seedstack.seed.persistence.jpa.api.JpaUnit;
-import org.seedstack.seed.transaction.api.Transactional;
+import org.seedstack.samples.domain.product.Product;
 
 import javax.inject.Inject;
 import javax.jws.WebService;
@@ -28,17 +26,15 @@ public class ProductInfoServiceWebImpl implements ProductInfoWS {
     FluentAssembler fluentAssembler;
 
     @Inject
-    ProductRepository productRepository;
+    Factory<Product> productFactory;
 
     @Override
-    @Transactional
-    @JpaUnit("ecommerce-domain")
     public ProductInfo productInfoByID(long idProduct) throws BadProductRequestException {
         if (idProduct <= 0) {
             throw new BadProductRequestException("Error retrieving product", buildBadProductFaultInfo("Product identifier cannot be negative or 0", idProduct));
         }
 
-        Product product = productRepository.load(idProduct);
+        Product product = productFactory.create(idProduct, "Product #" + idProduct);
 
         if (product == null) {
             throw new BadProductRequestException("Error retrieving product", buildBadProductFaultInfo("Product not found", idProduct));
