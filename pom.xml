@@ -113,7 +113,7 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.seedstack.addons.web-services</groupId>
+            <groupId>org.seedstack.addons.ws</groupId>
             <artifactId>web-services-web</artifactId>
         </dependency>
         <dependency>
