@@ -1,10 +1,10 @@
 # General configuration
 [org.seedstack.seed]
 core.application-id = web-services-sample
-ws.endpoints = ProductInfoWS
 
 # ProductInfo WS
-[org.seedstack.seed.ws]
+[org.seedstack.ws]
+endpoints = ProductInfoWS
 endpoint.ProductInfoWS.implementation = org.seedstack.samples.ws.product.ProductInfoServiceWebImpl
 endpoint.ProductInfoWS.wsdl = ProductInfoWS.wsdl
 endpoint.ProductInfoWS.url = /product-info

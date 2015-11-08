@@ -12,8 +12,8 @@
  */
 package org.seedstack.samples.ws.product;
 
-import org.seedstack.business.api.domain.Factory;
-import org.seedstack.business.api.interfaces.assembler.FluentAssembler;
+import org.seedstack.business.domain.Factory;
+import org.seedstack.business.assembler.FluentAssembler;
 import org.seedstack.samples.domain.product.Product;
 
 import javax.inject.Inject;
