@@ -14,7 +14,7 @@
         <maven.compiler.source>1.6</maven.compiler.source>
         <maven.compiler.target>1.6</maven.compiler.target>
 
-        <seedstack-distribution.version>15.11-M1-SNAPSHOT</seedstack-distribution.version>
+        <seedstack-distribution.version>15.11-M1</seedstack-distribution.version>
     </properties>
 
     <build>
