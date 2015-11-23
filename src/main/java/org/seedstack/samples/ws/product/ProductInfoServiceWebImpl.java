@@ -1,7 +1,5 @@
 /**
- * Copyright (c) 2013-2015 by The SeedStack authors. All rights reserved.
- *
- * This file is part of SeedStack, An enterprise-oriented full development stack.
+ * Copyright (c) 2013-2015, The SeedStack authors <http://seedstack.org>
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -14,7 +12,6 @@ package org.seedstack.samples.ws.product;
 
 import org.seedstack.business.domain.Factory;
 import org.seedstack.business.assembler.FluentAssembler;
-import org.seedstack.samples.domain.product.Product;
 
 import javax.inject.Inject;
 import javax.jws.WebService;

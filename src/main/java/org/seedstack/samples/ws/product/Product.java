@@ -5,27 +5,22 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
-package org.seedstack.samples.domain.product;
+package org.seedstack.samples.ws.product;
 
 import org.seedstack.business.domain.BaseAggregateRoot;
 
 public class Product extends BaseAggregateRoot<Long> {
-    private final Long entityId;
+    private final Long id;
     private final String designation;
-    private String summary;
-    private String details;
-    private String picture;
-    private Double price;
-    private Long categoryId;
 
     Product(long entityId, String designation) {
-        this.entityId = entityId;
+        this.id = entityId;
         this.designation = designation;
     }
 
     @Override
     public Long getEntityId() {
-        return entityId;
+        return id;
     }
 
     /**
@@ -43,16 +38,7 @@ public class Product extends BaseAggregateRoot<Long> {
      * @return the summary
      */
     public String getSummary() {
-        return summary;
-    }
-
-    /**
-     * Sets the summary.
-     *
-     * @param summary the summary to set
-     */
-    public void setSummary(String summary) {
-        this.summary = summary;
+        return "Summary of product #" + id;
     }
 
     /**
@@ -61,16 +47,7 @@ public class Product extends BaseAggregateRoot<Long> {
      * @return the details
      */
     public String getDetails() {
-        return details;
-    }
-
-    /**
-     * Sets the details.
-     *
-     * @param details the details to set
-     */
-    public void setDetails(String details) {
-        this.details = details;
+        return "Details of product #" + id;
     }
 
     /**
@@ -79,16 +56,7 @@ public class Product extends BaseAggregateRoot<Long> {
      * @return the picture
      */
     public String getPicture() {
-        return picture;
-    }
-
-    /**
-     * Sets the picture.
-     *
-     * @param picture the picture to set
-     */
-    public void setPicture(String picture) {
-        this.picture = picture;
+        return "https://placehold.it/350x150";
     }
 
     /**
@@ -97,16 +65,7 @@ public class Product extends BaseAggregateRoot<Long> {
      * @return the price
      */
     public Double getPrice() {
-        return price;
-    }
-
-    /**
-     * Sets the price.
-     *
-     * @param price the price to set
-     */
-    public void setPrice(Double price) {
-        this.price = price;
+        return id * 10.0 + 1;
     }
 
     /**
@@ -115,17 +74,6 @@ public class Product extends BaseAggregateRoot<Long> {
      * @return the categoryId
      */
     public Long getCategoryId() {
-        return categoryId;
+        return id * 100 % 20 + 1;
     }
-
-    /**
-     * Sets the categoryId.
-     *
-     * @param categoryId the categoryId to set
-     */
-    public void setCategoryId(Long categoryId) {
-        this.categoryId = categoryId;
-    }
-
-
 }

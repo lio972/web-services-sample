@@ -1,50 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    Copyright (c) 2013-2015, The SeedStack authors <http://seedstack.org>
+
+    This Source Code Form is subject to the terms of the Mozilla Public
+    License, v. 2.0. If a copy of the MPL was not distributed with this
+    file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+-->
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.seedstack.samples</groupId>
-    <artifactId>simple-ws-sample</artifactId>
+    <artifactId>web-services-sample</artifactId>
     <version>1.0.0-SNAPSHOT</version>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-
-        <maven.compiler.source>1.6</maven.compiler.source>
-        <maven.compiler.target>1.6</maven.compiler.target>
-
-        <seedstack-distribution.version>15.11-M1</seedstack-distribution.version>
     </properties>
 
     <build>
+        <finalName>web-services</finalName>
         <pluginManagement>
             <plugins>
                 <plugin>
-                    <groupId>org.jvnet.jax-ws-commons</groupId>
-                    <artifactId>jaxws-maven-plugin</artifactId>
-                    <version>2.3</version>
-                    <executions>
-                        <execution>
-                            <id>generate-product-info</id>
-                            <goals>
-                                <goal>wsimport</goal>
-                            </goals>
-                            <phase>generate-sources</phase>
-                            <configuration>
-                                <verbose>true</verbose>
-                                <wsdlDirectory>src/main/resources</wsdlDirectory>
-                                <wsdlFiles>
-                                    <wsdlFile>ProductInfoWS.wsdl</wsdlFile>
-                                </wsdlFiles>
-                                <target>2.1</target>
-                                <genJWS>false</genJWS>
-                                <vmArgs>
-                                    <vmArg>-Djavax.xml.accessExternalSchema=all</vmArg>
-                                </vmArgs>
-                            </configuration>
-                        </execution>
-                    </executions>
+                    <groupId>org.seedstack</groupId>
+                    <artifactId>seedstack-maven-plugin</artifactId>
+                    <version>2.1.0</version>
                 </plugin>
             </plugins>
         </pluginManagement>
@@ -53,6 +37,33 @@
                 <groupId>org.jvnet.jax-ws-commons</groupId>
                 <artifactId>jaxws-maven-plugin</artifactId>
                 <version>2.3</version>
+                <executions>
+                    <execution>
+                        <id>generate-product-info</id>
+                        <goals>
+                            <goal>wsimport</goal>
+                        </goals>
+                        <phase>generate-sources</phase>
+                        <configuration>
+                            <wsdlDirectory>src/main/resources</wsdlDirectory>
+                            <wsdlFiles>
+                                <wsdlFile>ProductInfoWS.wsdl</wsdlFile>
+                            </wsdlFiles>
+                            <vmArgs>
+                                <vmArg>-Djavax.xml.accessExternalSchema=all</vmArg>
+                            </vmArgs>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.3.2</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
             </plugin>
         </plugins>
     </build>
@@ -62,7 +73,7 @@
             <dependency>
                 <groupId>org.seedstack</groupId>
                 <artifactId>seedstack-bom</artifactId>
-                <version>${seedstack-distribution.version}</version>
+                <version>15.11-M1</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -88,34 +99,4 @@
             <version>1.1.3</version>
         </dependency>
     </dependencies>
-
-    <profiles>
-        <profile>
-            <id>snapshots</id>
-            <repositories>
-                <repository>
-                    <snapshots>
-                        <enabled>true</enabled>
-                    </snapshots>
-                    <releases>
-                        <enabled>false</enabled>
-                    </releases>
-                    <id>ojo-libs-snapshot</id>
-                    <name>ojo-snapshots</name>
-                    <url>https://oss.jfrog.org/artifactory/libs-snapshot</url>
-                </repository>
-                <repository>
-                    <snapshots>
-                        <enabled>true</enabled>
-                    </snapshots>
-                    <releases>
-                        <enabled>false</enabled>
-                    </releases>
-                    <id>sonatype-nexus-staging</id>
-                    <name>Sonatype Nexus Staging</name>
-                    <url>https://oss.sonatype.org/content/groups/staging</url>
-                </repository>
-            </repositories>
-        </profile>
-    </profiles>
 </project>

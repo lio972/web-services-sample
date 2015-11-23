@@ -1,27 +1,31 @@
-# Simple Web-Service sample
-[![Build status](https://travis-ci.org/seedstack/simple-ws-sample.svg?branch=master)](https://travis-ci.org/seedstack/simple-ws-sample)
+# Web-Service sample
+[![Build status](https://travis-ci.org/seedstack/web-services-sample.svg?branch=master)](https://travis-ci.org/seedstack/web-services-sample)
 
-A simple Web-Service exposing product information, based on the e-commerce domain model.
+A project demonstrating features of the [SeedStack Web-Services add-on](http://seedstack.org/addons/web-services).
 
-# Run it
+# Running it
 
-If you have [Maven 3](http://maven.apache.org/) installed, you can clone the repository and run it locally with the maven Jetty plugin:
+## Locally
 
-    git clone https://github.com/seedstack/simple-ws-sample.git
-    cd simple-ws-sample
-    mvn clean install && mvn jetty:run
+If you have [Maven 3](http://maven.apache.org/) installed, you can clone the repository and run it locally:
+
+    git clone https://github.com/seedstack/web-services-sample.git
+    cd web-services-sample
+    mvn seedstack:run
+
+## On Heroku
 
 Or you can just deploy it on your own Heroku account by clicking this button:
 
 [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
  
-# Use it
+# Usage
 
 Add the following URL in your favorite WS client:
 
     http://localhost:8080/product-info?wsdl
 
-Generate a sample request for the productInfoByID operation and use a product id between 0 and 49.
+Generate a sample request for the productInfoByID operation and use any product identifier. Mock data is generated on-the-fly.
 
 # Copyright and license
 
