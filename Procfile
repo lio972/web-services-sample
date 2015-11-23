@@ -1,1 +1,1 @@
-web: java -jar target/web-services.jar
+web: java -jar target/web-services-capsule.jar
