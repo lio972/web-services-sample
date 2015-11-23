@@ -9,8 +9,6 @@ A project demonstrating features of the [SeedStack Web-Services add-on](http://s
 
 If you have [Maven 3](http://maven.apache.org/) installed, you can clone the repository and run it locally:
 
-    git clone https://github.com/seedstack/web-services-sample.git
-    cd web-services-sample
     mvn seedstack:run
 
 ## On Heroku
