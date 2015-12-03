@@ -1,5 +1,5 @@
 {
-  "name": "SeedStack Web-Services sample",
+  "name": "web-services-sample",
   "description": "Sample demonstrating features of the SeedStack Web-Services add-on.",
   "repository": "https://github.com/seedstack/web-services-sample",
   "keywords": ["seedstack", "web-service", "java", "sample"]

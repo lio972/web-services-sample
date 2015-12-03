@@ -9,6 +9,7 @@
 # General configuration
 [org.seedstack.seed]
 core.application-id = web-services-sample
+server.port<heroku> = ${env:PORT}
 
 # ProductInfo WS
 [org.seedstack.ws]
