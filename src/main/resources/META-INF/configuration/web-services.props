@@ -1,19 +1,29 @@
 #
-# Copyright (c) 2013-2015, The SeedStack authors <http://seedstack.org>
+# Copyright (c) 2013-2016, The SeedStack authors <http://seedstack.org>
 #
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 #
 
-# General configuration
 [org.seedstack.seed]
 core.application-id = web-services-sample
 server.port<heroku> = ${env:PORT}
 
-# ProductInfo WS
 [org.seedstack.ws]
-endpoints = ProductInfoWS
-endpoint.ProductInfoWS.implementation = org.seedstack.samples.ws.product.ProductInfoServiceWebImpl
-endpoint.ProductInfoWS.wsdl = ProductInfoWS.wsdl
-endpoint.ProductInfoWS.url = /product-info
+endpoints = ProductInfo, CalculatorUsernameToken, CalculatorCertificate
+
+[org.seedstack.ws.endpoint.ProductInfo]
+implementation = org.seedstack.samples.ws.ws.product.ProductInfoImpl
+wsdl = META-INF/ws/wsdl/ProductInfo.wsdl
+url = /product-info
+
+[org.seedstack.ws.endpoint.CalculatorUsernameToken]
+implementation = org.seedstack.samples.ws.ws.calculator.CalculatorUsernameTokenImpl
+wsdl = META-INF/ws/wsdl/Calculator.wsdl
+url = /calculator-username-token
+
+[org.seedstack.ws.endpoint.CalculatorCertificate]
+implementation = org.seedstack.samples.ws.ws.calculator.CalculatorCertificateImpl
+wsdl = META-INF/ws/wsdl/Calculator.wsdl
+url = /calculator-certificate
