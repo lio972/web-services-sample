@@ -43,6 +43,7 @@ public class WebServiceIT extends AbstractSeedWebIT {
     public void testSimple(@ArquillianResource URL baseURL) throws Exception {
         ProductInfoPortType productInfoPort = productInfoService.getProductInfoPort();
         ((BindingProvider) productInfoPort).getRequestContext().put(BindingProvider.ENDPOINT_ADDRESS_PROPERTY, baseURL + "product-info");
+
         assertThat(productInfoPort.productInfoById(1).getDesignation()).isEqualTo("Product #1");
     }
 
@@ -51,7 +52,9 @@ public class WebServiceIT extends AbstractSeedWebIT {
     public void testSimpleWithException(@ArquillianResource URL baseURL) throws Exception {
         ProductInfoPortType productInfoPort = productInfoService.getProductInfoPort();
         ((BindingProvider) productInfoPort).getRequestContext().put(BindingProvider.ENDPOINT_ADDRESS_PROPERTY, baseURL + "product-info");
+
         productInfoPort.productInfoById(-1);
+
         fail("should have failed");
     }
 
@@ -60,6 +63,11 @@ public class WebServiceIT extends AbstractSeedWebIT {
     public void testUsernameToken(@ArquillianResource URL baseURL) throws Exception {
         CalculatorPortType calculatorPort = calculatorService.getCalculatorUsernameTokenPort();
         ((BindingProvider) calculatorPort).getRequestContext().put(BindingProvider.ENDPOINT_ADDRESS_PROPERTY, baseURL + "calculator-username-token");
+        // User name and password below will be used for username token policy.
+        // You can omit them if you have a custom handler configured in the wsit-client.xml file.
+        ((BindingProvider) calculatorPort).getRequestContext().put(BindingProvider.USERNAME_PROPERTY, "demo");
+        ((BindingProvider) calculatorPort).getRequestContext().put(BindingProvider.PASSWORD_PROPERTY, "demo");
+
         assertThat(calculatorPort.add(1, 1)).isEqualTo(2);
     }
 
@@ -68,6 +76,7 @@ public class WebServiceIT extends AbstractSeedWebIT {
     public void testCertificate(@ArquillianResource URL baseURL) throws Exception {
         CalculatorPortType calculatorPort = calculatorService.getCalculatorCertificatePort();
         ((BindingProvider) calculatorPort).getRequestContext().put(BindingProvider.ENDPOINT_ADDRESS_PROPERTY, baseURL + "calculator-certificate");
+
         assertThat(calculatorPort.add(1, 1)).isEqualTo(2);
     }
 }

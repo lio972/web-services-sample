@@ -142,10 +142,12 @@
                         </sp:UsernameToken>
                     </wsp:Policy>
                 </sp:SupportingTokens>
-                <sc:ValidatorConfiguration wspp:visibility="private">
-                    <sc:Validator name="usernameValidator"
-                                  classname="org.seedstack.samples.ws.infrastructure.PlainTextPasswordValidator"/>
-                </sc:ValidatorConfiguration>
+                <!--By default user/password validation will be delegated to Seed security subsystem (Shiro).-->
+                <!--If you want a specific user/password validation, you can specify a custom validator configuration as below.-->
+                <!--<sc:ValidatorConfiguration wspp:visibility="private">-->
+                    <!--<sc:Validator name="usernameValidator"-->
+                                  <!--classname="org.seedstack.samples.ws.infrastructure.PlainTextPasswordValidator"/>-->
+                <!--</sc:ValidatorConfiguration>-->
                 <sp:Wss11/>
             </wsp:All>
         </wsp:ExactlyOne>

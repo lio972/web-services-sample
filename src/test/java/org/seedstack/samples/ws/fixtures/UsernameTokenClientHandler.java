@@ -15,7 +15,7 @@ import javax.security.auth.callback.UnsupportedCallbackException;
 import java.io.IOException;
 
 /**
- * A sample basic callback handler.
+ * A sample basic callback handler that can be referenced from wsit-client.xml file.
  */
 public class UsernameTokenClientHandler implements CallbackHandler {
     @Override
